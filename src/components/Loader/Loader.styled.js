@@ -1,11 +1,11 @@
 import styled from '@emotion/styled';
 
-export const Audio = styled.div`
-  height:80;
-  width="80"
-  radius="9"
-  color="green"
-  ariaLabel="three-dots-loading"
-  wrapperStyle
-  wrapperClass
+export const ButtonLoad = styled.button`
+  outline: none;
+  border: none;
+  text-align: center;
+  display: block;
+  background: transparent;
+  text-decoration: none;
+  cursor: pointer;
 `;
