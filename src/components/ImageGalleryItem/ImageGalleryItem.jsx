@@ -17,8 +17,8 @@ export class ImageGalleryItem extends Component {
   render() {
     const { webformatURL, user, largeImageURL } = this.props;
     return (
-      <ImageItem onClick={this.openModalWindow}>
-        <Image src={webformatURL} alt={user} />
+      <ImageItem>
+        <Image onClick={this.openModalWindow} src={webformatURL} alt={user} />
         {this.state.showModal && (
           <Modal
             url={largeImageURL}
