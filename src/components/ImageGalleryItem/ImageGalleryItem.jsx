@@ -23,7 +23,7 @@ export class ImageGalleryItem extends Component {
           <Modal
             url={largeImageURL}
             user={user}
-            closeModal={this.closeModalWindow}
+            closeModalWindow={this.closeModalWindow}
           />
         )}
       </ImageItem>
@@ -34,5 +34,4 @@ export class ImageGalleryItem extends Component {
 ImageGalleryItem.propTypes = {
   webformatURL: PropTypes.string.isRequired,
   user: PropTypes.string.isRequired,
-  largeImageURL: PropTypes.string.isRequired,
 };

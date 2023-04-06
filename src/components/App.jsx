@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Notiflix from 'notiflix';
 
 import { Searchbar } from './Searchbar/Searchbar';
 import { ImageGallery } from './ImageGallery/ImageGallery';
@@ -35,7 +36,10 @@ export class App extends Component {
 
         .then(data => {
           if (data.hits.length <= 0) {
-            alert(' Find nothing... Please input correct value');
+            Notiflix.Notify.failure(
+              ' Find nothing... Please input correct value'
+            );
+            // alert(' Find nothing... Please input correct value');
             return;
           }
           if (prevState.nameValue !== this.state.nameValue) {

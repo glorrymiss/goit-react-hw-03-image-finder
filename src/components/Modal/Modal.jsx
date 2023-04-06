@@ -8,17 +8,15 @@ export class Modal extends Component {
 
   handleKeydown = event => {
     if (event.code === 'Escape') {
-      this.props.closeModal();
+      this.props.closeModalWindow();
     }
   };
-
   componentWillUnmount() {
     window.removeEventListener('keydown', this.handleKeydown);
   }
-
-  handleBackdropClose = event => {
-    if (event.target === event.currentTarget) {
-      this.props.closeModal();
+  hendleClose = event => {
+    if (event.currentTarget === event.target) {
+      this.props.closeModalWindow();
     }
   };
 
@@ -26,7 +24,7 @@ export class Modal extends Component {
     const { url, user } = this.props;
 
     return (
-      <Overlay onClick={this.handleBackdropClose}>
+      <Overlay onClick={this.hendleClose}>
         <ModalWindow>
           <img src={url} alt={user} />
         </ModalWindow>
@@ -38,5 +36,5 @@ export class Modal extends Component {
 Modal.propTypes = {
   url: PropTypes.string.isRequired,
   user: PropTypes.string.isRequired,
-  closeModal: PropTypes.func.isRequired,
+  closeModalWindow: PropTypes.func.isRequired,
 };

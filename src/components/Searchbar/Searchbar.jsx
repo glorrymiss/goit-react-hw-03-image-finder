@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { FaSearch } from 'react-icons/fa';
+import Notiflix from 'notiflix';
 
 import {
   Header,
@@ -21,7 +22,9 @@ export class Searchbar extends Component {
     event.preventDefault();
 
     if (this.state.nameValue.trim() === '') {
-      alert('Please enter the word');
+      Notiflix.Notify.failure('Please enter the word');
+      // alert('Please enter the word');
+
       return;
     }
 
