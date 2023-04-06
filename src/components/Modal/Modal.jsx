@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 export class Modal extends Component {
   componentDidMount() {
     window.addEventListener('keydown', this.handleKeydown);
+    window.addEventListener('click', this.hendleClose);
   }
 
   handleKeydown = event => {

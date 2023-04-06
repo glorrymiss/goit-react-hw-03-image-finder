@@ -8,11 +8,11 @@ export class ImageGalleryItem extends Component {
   };
 
   openModalWindow = () => {
-    this.setState({ showModal: true });
+    return this.setState({ showModal: true });
   };
 
   closeModalWindow = () => {
-    this.setState({ showModal: false });
+    return this.setState({ showModal: false });
   };
   render() {
     const { webformatURL, user, largeImageURL } = this.props;

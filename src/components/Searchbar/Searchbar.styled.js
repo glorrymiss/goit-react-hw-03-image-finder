@@ -24,7 +24,7 @@ export const SearchForm = styled.form`
   align-items: center;
   width: 100%;
   max-width: 600px;
-  background-color: #fff;
+  background-color: #fffff0;
   border-radius: 3px;
   overflow: hidden;
 `;
@@ -35,11 +35,9 @@ export const SearchFormButton = styled.button`
   width: 48px;
   height: 48px;
   border: 0;
+  background-color: #98fb98;
 
-  background-size: 40%;
-  background-repeat: no-repeat;
-  background-position: center;
-  opacity: 0.6;
+  opacity: 0.5;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   outline: none;

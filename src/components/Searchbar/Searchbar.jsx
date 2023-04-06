@@ -23,7 +23,6 @@ export class Searchbar extends Component {
 
     if (this.state.nameValue.trim() === '') {
       Notiflix.Notify.failure('Please enter the word');
-      // alert('Please enter the word');
 
       return;
     }
