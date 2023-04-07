@@ -46,7 +46,6 @@ export class App extends Component {
           }
 
           if (prevState.nameValue !== this.state.nameValue) {
-            // this.setState({ page: 1 });
             this.setState({ images: data.hits, hasBtn: true });
           }
 
@@ -55,7 +54,6 @@ export class App extends Component {
               images: [...prevState.images, ...data.hits],
             });
             const pages = Math.ceil(data.totalHits / this.state.perPage);
-            console.log(pages);
 
             if (this.state.page === pages) this.setState({ hasBtn: false });
           }
@@ -83,8 +81,6 @@ export class App extends Component {
         <Searchbar onSubmit={this.hendleTakeSubmit} />
         {images.length > 0 && <ImageGallery images={images} />}
         {images.length > 0 && hasBtn && <Button onChange={this.hendleLoad} />}
-
-        {/* {images.length > 0 && <Button onChange={this.hendleLoad} />} */}
         {isLoading && <Loader />}
       </Container>
     );
