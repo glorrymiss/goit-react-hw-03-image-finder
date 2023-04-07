@@ -15,6 +15,8 @@ export class App extends Component {
     nameValue: '',
     error: null,
     page: 1,
+    perPage: 12,
+    hasBtn: false,
   };
 
   componentDidUpdate(prevProps, prevState) {
@@ -39,17 +41,23 @@ export class App extends Component {
             Notiflix.Notify.failure(
               ' Find nothing... Please input correct value'
             );
-            // alert(' Find nothing... Please input correct value');
+
             return;
           }
+
           if (prevState.nameValue !== this.state.nameValue) {
-            return this.setState({ images: data.hits });
+            // this.setState({ page: 1 });
+            this.setState({ images: data.hits, hasBtn: true });
           }
 
           if (prevState.page !== this.state.page) {
-            return this.setState({
+            this.setState({
               images: [...prevState.images, ...data.hits],
             });
+            const pages = Math.ceil(data.totalHits / this.state.perPage);
+            console.log(pages);
+
+            if (this.state.page === pages) this.setState({ hasBtn: false });
           }
         })
 
@@ -64,21 +72,19 @@ export class App extends Component {
   };
 
   hendleTakeSubmit = nameValue => {
-    this.setState({ images: [] });
-    this.setState({ nameValue });
+    this.setState({ images: [], nameValue, page: 1 });
   };
 
   render() {
-    const { images, isLoading } = this.state;
+    const { images, isLoading, hasBtn } = this.state;
 
     return (
       <Container>
         <Searchbar onSubmit={this.hendleTakeSubmit} />
-
         {images.length > 0 && <ImageGallery images={images} />}
+        {images.length > 0 && hasBtn && <Button onChange={this.hendleLoad} />}
 
-        {images.length > 0 && <Button onChange={this.hendleLoad} />}
-
+        {/* {images.length > 0 && <Button onChange={this.hendleLoad} />} */}
         {isLoading && <Loader />}
       </Container>
     );
