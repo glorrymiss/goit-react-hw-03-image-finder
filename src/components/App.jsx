@@ -70,7 +70,9 @@ export class App extends Component {
   };
 
   hendleTakeSubmit = nameValue => {
-    this.setState({ images: [], nameValue, page: 1 });
+    this.setState({ images: [] });
+    this.setState({ nameValue });
+    // this.setState({ page: 1 });
   };
 
   render() {
