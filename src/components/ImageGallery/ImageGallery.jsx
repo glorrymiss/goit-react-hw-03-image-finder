@@ -1,9 +1,9 @@
 import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
 import { ImageList } from './ImageGallery.styled';
 import PropTypes from 'prop-types';
-export function ImageGallery({ images }) {
+export function ImageGallery({ images, key }) {
   return (
-    <ImageList>
+    <ImageList key={key}>
       {images.map(({ id, webformatURL, user, largeImageURL }) => {
         return (
           <ImageGalleryItem

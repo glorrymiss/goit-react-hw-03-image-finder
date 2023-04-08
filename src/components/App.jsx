@@ -45,8 +45,17 @@ export class App extends Component {
             return;
           }
 
+          //   const pages = Math.ceil(data.totalHits / this.state.perPage);
+          //   this.setState(({ images, page, loading }) => ({
+          //     images: [...images, ...data.hits],
+          //     page: pages,
+          //     loading: true,
+          //   }));
+          // })
+
           if (prevState.nameValue !== this.state.nameValue) {
-            this.setState({ images: data.hits, hasBtn: true });
+            // this.setState(prevState => ({ page: (prevState.page = null) }));
+            this.setState({ page: 1, images: data.hits, hasBtn: true });
           }
 
           if (prevState.page !== this.state.page) {
@@ -54,7 +63,6 @@ export class App extends Component {
               images: [...prevState.images, ...data.hits],
             });
             const pages = Math.ceil(data.totalHits / this.state.perPage);
-
             if (this.state.page === pages) this.setState({ hasBtn: false });
           }
         })
@@ -70,9 +78,9 @@ export class App extends Component {
   };
 
   hendleTakeSubmit = nameValue => {
-    this.setState({ images: [] });
     this.setState({ nameValue });
-    // this.setState({ page: 1 });
+
+    this.setState({ images: [] });
   };
 
   render() {
