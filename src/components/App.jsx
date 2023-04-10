@@ -41,30 +41,14 @@ export class App extends Component {
             Notiflix.Notify.failure(
               ' Find nothing... Please input correct value'
             );
-
             return;
           }
-
-          //   const pages = Math.ceil(data.totalHits / this.state.perPage);
-          //   this.setState(({ images, page, loading }) => ({
-          //     images: [...images, ...data.hits],
-          //     page: pages,
-          //     loading: true,
-          //   }));
-          // })
-
-          if (prevState.nameValue !== this.state.nameValue) {
-            // this.setState(prevState => ({ page: (prevState.page = null) }));
-            this.setState({ page: 1, images: data.hits, hasBtn: true });
-          }
-
-          if (prevState.page !== this.state.page) {
-            this.setState({
-              images: [...prevState.images, ...data.hits],
-            });
-            const pages = Math.ceil(data.totalHits / this.state.perPage);
-            if (this.state.page === pages) this.setState({ hasBtn: false });
-          }
+          this.setState({
+            images: [...prevState.images, ...data.hits],
+            hasBtn: true,
+          });
+          const pages = Math.ceil(data.totalHits / this.state.perPage);
+          if (this.state.page === pages) this.setState({ hasBtn: false });
         })
 
         .catch(error => this.setState({ error }))
@@ -78,7 +62,7 @@ export class App extends Component {
   };
 
   hendleTakeSubmit = nameValue => {
-    this.setState({ nameValue, images: [] });
+    this.setState({ nameValue, images: [], page: 1 });
   };
 
   render() {
