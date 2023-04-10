@@ -27,7 +27,7 @@ export class App extends Component {
       this.setState({ isLoading: true });
 
       fetch(
-        `https://pixabay.com/api/?q=${this.state.nameValue}&page=${this.state.page}&key=33635231-9592dead0045fe81be9248485&image_type=photo&orientation=horizontal&per_page=12`
+        `https://pixabay.com/api/?q=${this.state.nameValue}&page=${this.state.page}&key=33635231-9592dead0045fe81be9248485&image_type=photo&orientation=horizontal&per_page=${this.state.perPage}`
       )
         .then(response => {
           if (response.ok) {
