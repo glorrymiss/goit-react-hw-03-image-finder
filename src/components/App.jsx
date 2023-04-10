@@ -43,10 +43,10 @@ export class App extends Component {
             );
             return;
           }
-          this.setState({
+          this.setState(prevState => ({
             images: [...prevState.images, ...data.hits],
             hasBtn: true,
-          });
+          }));
           const pages = Math.ceil(data.totalHits / this.state.perPage);
           if (this.state.page === pages) this.setState({ hasBtn: false });
         })
